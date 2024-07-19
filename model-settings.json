@@ -1,0 +1,7 @@
+{
+    "name": "wine-classifier",
+    "implementation": "mlserver_mlflow.MLflowRuntime",
+    "parameters": {
+        "uri": "ls: cannot access './mlruns/0/*': No such file or directory/artifacts/model"
+    }
+}
