@@ -1,7 +1,8 @@
 # Build an image that can serve mlflow models.
 FROM python:3.10.6-slim
 
-RUN apt-get -y update && apt-get install -y --no-install-recommends nginx
+RUN apt-get -y update
+RUN apt-get install -y --no-install-recommends nginx
 
 
 
