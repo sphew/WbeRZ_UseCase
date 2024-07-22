@@ -23,6 +23,8 @@ ENV GUNICORN_CMD_ARGS="--timeout 60 -k gevent"
 # (see https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html)
 RUN chmod o+rwX /opt/mlflow/
 
+USER 1001
+
 # clean up apt cache to reduce image size
 RUN rm -rf /var/lib/apt/lists/*
 
