@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/d/Projekts/MLOps/WbeRZ_UseCase/mlruns/0/cc59fe01b30241d4ac5cb10c843ce3a4/artifacts
+end_time: 1721643656922
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cc59fe01b30241d4ac5cb10c843ce3a4
+run_name: auspicious-ape-387
+run_uuid: cc59fe01b30241d4ac5cb10c843ce3a4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721643628071
+status: 3
+tags: []
+user_id: mohammad

@@ -63,7 +63,7 @@ if __name__ == "__main__":
     alpha =  0.5
     l1_ratio =  0.5
     
-    mlflow.set_tracking_uri(uri="https://mlflow-https-mlflow-image.apps.cluster-wjv6h.wjv6h.sandbox622.opentlc.com/")
+    # mlflow.set_tracking_uri(uri="https://mlflow-https-mlflow-image.apps.cluster-wjv6h.wjv6h.sandbox622.opentlc.com/")
 
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
