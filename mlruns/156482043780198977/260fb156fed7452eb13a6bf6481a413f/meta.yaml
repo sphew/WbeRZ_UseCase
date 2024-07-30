@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/d/Projekts/MLOps/WbeRZ_UseCase/mlruns/156482043780198977/260fb156fed7452eb13a6bf6481a413f/artifacts
+end_time: 1721981296368
+entry_point_name: ''
+experiment_id: '156482043780198977'
+lifecycle_stage: active
+run_id: 260fb156fed7452eb13a6bf6481a413f
+run_name: illustrious-ape-626
+run_uuid: 260fb156fed7452eb13a6bf6481a413f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721981293005
+status: 3
+tags: []
+user_id: mohammad

@@ -13,7 +13,7 @@ import sys
 
 import pandas as pd
 import numpy as np
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 from urllib.parse import urlparse
@@ -33,24 +33,28 @@ def eval_metrics(actual, pred):
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
 
+# def accuracy(actual, pred):
+#     acc = roc_auc_score(actual, pred, multi_class="ovo")
+#     return acc 
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
-    # Read the wine-quality csv file from the URL
-    csv_url = (
-        "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
-    )
-    try:
-        data = pd.read_csv(csv_url, sep=";")
-    except Exception as e:
-        logger.exception(
-            "Unable to download training & test CSV, "
-            "check your internet connection. Error: %s",
-            e,
-        )
+    # # Read the wine-quality csv file from the URL
+    # csv_url = (
+    #     "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+    # )
+    # try:
+    #     data = pd.read_csv(csv_url, sep=";")
+    # except Exception as e:
+    #     logger.exception(
+    #         "Unable to download training & test CSV, "
+    #         "check your internet connection. Error: %s",
+    #         e,
+    #     )
 
+    data = pd.read_csv('winequality-red.csv', sep=";")
     # Split the data into training and test sets. (0.75, 0.25) split.
     train, test = train_test_split(data)
 
@@ -60,10 +64,12 @@ if __name__ == "__main__":
     train_y = train[["quality"]]
     test_y = test[["quality"]]
 
-    alpha =  0.5
-    l1_ratio =  0.5
+    alpha =  0.4
+    l1_ratio =  0.2
     
-    # mlflow.set_tracking_uri(uri="https://mlflow-https-mlflow-image.apps.cluster-wjv6h.wjv6h.sandbox622.opentlc.com/")
+    # mlflow.set_tracking_uri(uri="http://mlflow-nginx.apps.cluster-tdb7n.tdb7n.sandbox2943.opentlc.com")
+    mlflow.set_tracking_uri(uri="http://mlflow-auth-tracon-xxiv-mbahmani-0.apps.ocp.solutioncenter-munich.de")
+    mlflow.set_experiment("wine quality - trainin and validation/testing accuracy")
 
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
@@ -78,11 +84,18 @@ if __name__ == "__main__":
         print("  MAE: %s" % mae)
         print("  R2: %s" % r2)
 
+        # acc_training = accuracy(train_y, lr.predict(train_x))
+        # acc_testing = accuracy(test_y, lr.predict(test_x))
+        # print("  acc_training: %s" % acc_training)
+        # print("  acc_testing: %s" % acc_testing)
+
         mlflow.log_param("alpha", alpha)
         mlflow.log_param("l1_ratio", l1_ratio)
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
         mlflow.log_metric("mae", mae)
+        # mlflow.log_metric("acc_training", acc_training)
+        # mlflow.log_metric("acc_testing", acc_testing)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         model_signature = infer_signature(train_x, train_y)
