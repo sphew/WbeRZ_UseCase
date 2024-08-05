@@ -12,10 +12,10 @@ RUN pip install mlflow==2.14.3
 
 # Copy model to image and install dependencies
 COPY model_dir/ /opt/ml/model
-RUN python -c "from mlflow.models import container as C; C._install_pyfunc_deps('/opt/ml/model', install_mlflow=False, enable_mlserver=False, env_manager='local');"
+RUN python -c "from mlflow.models import container as C; C._install_pyfunc_deps('/opt/ml/model', install_mlflow=False, enable_mlserver=True, env_manager='local');"
 
 ENV MLFLOW_DISABLE_ENV_CREATION=True
-ENV ENABLE_MLSERVER=False
+ENV ENABLE_MLSERVER=True
 ENV GUNICORN_CMD_ARGS="--timeout 60 -k gevent"
 
 # granting read/write access and conditional execution authority to all child directories
