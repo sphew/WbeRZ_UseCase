@@ -22,6 +22,7 @@ ENV GUNICORN_CMD_ARGS="--timeout 60 -k gevent"
 # and files to allow for deployment to AWS Sagemaker Serverless Endpoints
 # (see https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html)
 RUN chmod o+rwX /opt/mlflow/
+RUN chgrp -R 0 /opt && chmod -R g=u /opt
 
 # clean up apt cache to reduce image size
 RUN rm -rf /var/lib/apt/lists/*
