@@ -41,7 +41,7 @@ print('************************************************************')
 print('************************************************************')
 print(' PREDICTION on Pre/PostProcessed Model --> heartClassifierPP')
 print('************************************************************')
-MODEL_URI_PP = "models:/heartClassifierPP/10"
+MODEL_URI_PP = "models:/heartClassifierPP/1"
 loaded_modelPP = mlflow.pyfunc.load_model(MODEL_URI_PP)
 
 print('************************************************************')

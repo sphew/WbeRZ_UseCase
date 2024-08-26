@@ -43,9 +43,9 @@ class heartClassifierPreProcessed(mlflow.pyfunc.PythonModel):
     def _format_output(prediction):
 
         if prediction == "1":
-            return "You may have heart problems! Please let yourseld checked!"
+            return "You may have heart problems! Please let yourself checked!"
         else:
-            return "Your heart works like a rock!"
+            return "Your heart works like a swiss watch!"
 
     def predict(self, context, model_input):
         print("It is predict function")
