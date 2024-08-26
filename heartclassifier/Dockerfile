@@ -24,6 +24,7 @@ ENV GUNICORN_CMD_ARGS="--timeout 60 -k gevent"
 RUN chmod o+rwX /opt/mlflow/
 RUN chgrp -R 0 /opt && chmod -R g=u /opt
 
+
 # clean up apt cache to reduce image size
 RUN rm -rf /var/lib/apt/lists/*
 

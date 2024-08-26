@@ -1,0 +1,36 @@
+artifact_path: model
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.0
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: xgb
+    xgb_version: 2.1.0
+mlflow_version: 2.14.3
+model_size_bytes: 111145
+model_uuid: e967d131f2374b77b27e44b3b9d8968c
+run_id: d850eb9a3a2c4961b5ac8e00922722ea
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "age", "required": true}, {"type": "long", "name":
+    "sex", "required": true}, {"type": "long", "name": "cp", "required": true}, {"type":
+    "long", "name": "trestbps", "required": true}, {"type": "long", "name": "chol",
+    "required": true}, {"type": "long", "name": "fbs", "required": true}, {"type":
+    "long", "name": "restecg", "required": true}, {"type": "long", "name": "thalach",
+    "required": true}, {"type": "long", "name": "exang", "required": true}, {"type":
+    "double", "name": "oldpeak", "required": true}, {"type": "long", "name": "slope",
+    "required": true}, {"type": "long", "name": "ca", "required": true}, {"type":
+    "integer", "name": "thal", "required": true}]'
+  outputs: '[{"type": "long", "name": "target", "required": true}]'
+  params: null
+utc_time_created: '2024-08-26 06:38:22.828743'
