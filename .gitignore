@@ -2,6 +2,10 @@ mlruns/*
 mlartifacts
 mlflow.db
 
+wine_classifier/mlruns/*
+wine_classifier/backup/*
+wine_classifier/*.html
+
 .ipynb_checkpoints/*
 .metrics/*
 .venv
