@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,5 +30,143 @@
         <h3>Message</h3>
         <p>{{ message }}</p>
     {% endif %}
+</body>
+</html> -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc; /* Light background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Container for the form and results */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #e7f7e7;
+            color: #333;
+            text-align: center;
+        }
+
+        .message {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Wine Quality Prediction</h1>
+        <form method="POST">
+            <h3>Input Features</h3>
+            {% for category in categories %}
+                <label for="{{ category }}">{{ category }}</label>
+                <input type="number" step="any" name="{{ category }}" required><br>
+            {% endfor %}
+
+            <h3>Actual Class (Optional)</h3>
+            <label for="actual_class">Actual Wine Quality Class</label>
+            <input type="number" name="actual_class"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <h3>Prediction</h3>
+                <p>Predicted Wine Quality Class: <strong>{{ prediction }}</strong></p>
+            </div>
+        {% endif %}
+
+        {% if message %}
+            <div class="message">
+                <p>{{ message }}</p>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
