@@ -57,47 +57,47 @@ def index():
 
     return render_template("index.html", categories=CATEGORIES, prediction=prediction, message=message)
 
-# Frontend template
-TEMPLATE = """
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wine Quality Prediction</title>
-</head>
-<body>
-    <h1>Wine Quality Prediction</h1>
-    <form method="POST">
-        <h3>Input Features</h3>
-        {% for category in categories %}
-            <label for="{{ category }}">{{ category }}</label>
-            <input type="number" step="any" name="{{ category }}" required><br>
-        {% endfor %}
+# # Frontend template
+# TEMPLATE = """
+# <!doctype html>
+# <html lang="en">
+# <head>
+#     <meta charset="UTF-8">
+#     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#     <title>Wine Quality Prediction</title>
+# </head>
+# <body>
+#     <h1>Wine Quality Prediction</h1>
+#     <form method="POST">
+#         <h3>Input Features</h3>
+#         {% for category in categories %}
+#             <label for="{{ category }}">{{ category }}</label>
+#             <input type="number" step="any" name="{{ category }}" required><br>
+#         {% endfor %}
 
-        <h3>Actual Class (Optional)</h3>
-        <label for="actual_class">Actual Wine Quality Class</label>
-        <input type="number" name="actual_class"><br>
+#         <h3>Actual Class (Optional)</h3>
+#         <label for="actual_class">Actual Wine Quality Class</label>
+#         <input type="number" name="actual_class"><br>
 
-        <button type="submit">Submit</button>
-    </form>
+#         <button type="submit">Submit</button>
+#     </form>
 
-    {% if prediction is not none %}
-        <h3>Prediction</h3>
-        <p>Predicted Wine Quality Class: {{ prediction }}</p>
-    {% endif %}
+#     {% if prediction is not none %}
+#         <h3>Prediction</h3>
+#         <p>Predicted Wine Quality Class: {{ prediction }}</p>
+#     {% endif %}
 
-    {% if message %}
-        <h3>Message</h3>
-        <p>{{ message }}</p>
-    {% endif %}
-</body>
-</html>
-"""
+#     {% if message %}
+#         <h3>Message</h3>
+#         <p>{{ message }}</p>
+#     {% endif %}
+# </body>
+# </html>
+# """
 
-@app.route("/template")
-def template():
-    return TEMPLATE
+# @app.route("/template")
+# def template():
+#     return TEMPLATE
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
