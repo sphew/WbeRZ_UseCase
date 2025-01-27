@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction</title>
+</head>
+<body>
+    <h1>Wine Quality Prediction</h1>
+    <form method="POST">
+        <h3>Input Features</h3>
+        {% for category in categories %}
+            <label for="{{ category }}">{{ category }}</label>
+            <input type="number" step="any" name="{{ category }}" required><br>
+        {% endfor %}
+
+        <h3>Actual Class (Optional)</h3>
+        <label for="actual_class">Actual Wine Quality Class</label>
+        <input type="number" name="actual_class"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Prediction</h3>
+        <p>Predicted Wine Quality Class: {{ prediction }}</p>
+    {% endif %}
+
+    {% if message %}
+        <h3>Message</h3>
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
