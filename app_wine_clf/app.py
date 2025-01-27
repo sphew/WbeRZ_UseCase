@@ -6,8 +6,8 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # Define the model server endpoint
-BASE_URL = "http://test-clf-app-test.apps.cluster-db46l.dynamic.redhatworkshops.io"
-MLFLOW_MODEL_ENDPOINT = f"{BASE_URL}/invocations"
+# ENDPOINT_URL = "http://test-clf-app-test.apps.cluster-db46l.dynamic.redhatworkshops.io"
+MLFLOW_MODEL_ENDPOINT = f"{ENDPOINT_URL}/invocations"
 
 # Categories list
 CATEGORIES = [
@@ -99,4 +99,5 @@ def template():
     return TEMPLATE
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
+    # app.run(host="0.0.0.0", port=5000, debug=True)

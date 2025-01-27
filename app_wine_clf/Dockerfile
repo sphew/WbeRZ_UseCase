@@ -19,6 +19,9 @@ RUN chmod -R 777 /app
 # Expose the application port
 EXPOSE 5000
 
+# Set environment variable for the endpoint
+ENV ENDPOINT_URL="http://default-endpoint"
+
 # Use a non-root user to run the application
 USER 1001
 
