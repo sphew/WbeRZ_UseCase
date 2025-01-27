@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # Define the model server endpoint
-# ENDPOINT_URL = "http://test-clf-app-test.apps.cluster-db46l.dynamic.redhatworkshops.io"
+ENDPOINT_URL = os.getenv("ENDPOINT_URL", "http://default-endpoint")
 MLFLOW_MODEL_ENDPOINT = f"{ENDPOINT_URL}/invocations"
 
 # Categories list
