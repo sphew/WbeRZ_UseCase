@@ -5,6 +5,7 @@ mlflow.db
 wine_classifier/mlruns/*
 wine_classifier/backup/*
 wine_classifier/*.html
+wine_classifier/.ipynb_checkpoints
 
 .ipynb_checkpoints/*
 .metrics/*
