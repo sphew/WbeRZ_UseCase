@@ -5,6 +5,7 @@ mlflow.db
 wine_classifier/mlruns/*
 wine_classifier/backup/*
 wine_classifier/*.html
+wine_classifier/*.json
 wine_classifier/.ipynb_checkpoints
 
 .ipynb_checkpoints/*
@@ -27,3 +28,7 @@ training_data
 testing_data
 performance_data
 
+
+# for myself
+infra_installation
+AI_GPT_Prompts
