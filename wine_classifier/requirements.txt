@@ -6,3 +6,4 @@ seaborn
 mlflow
 scikit-learn
 xgboost
+evidently
