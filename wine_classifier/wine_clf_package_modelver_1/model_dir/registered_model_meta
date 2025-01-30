@@ -1,2 +1,2 @@
-model_name: ElasticnetWineModel
+model_name: LogRegWineModel
 model_version: '1'
