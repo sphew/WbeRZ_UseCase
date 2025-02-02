@@ -7,6 +7,8 @@ wine_classifier/backup/*
 wine_classifier/*.html
 wine_classifier/*.json
 wine_classifier/.ipynb_checkpoints
+wine_classifier/*.png
+wine_classifier/*.csv
 
 .ipynb_checkpoints/*
 .metrics/*
@@ -32,3 +34,4 @@ performance_data
 # for myself
 infra_installation
 AI_GPT_Prompts
+wine_classifier_testrun

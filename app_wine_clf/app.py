@@ -12,17 +12,17 @@ MLFLOW_MODEL_ENDPOINT = f"{ENDPOINT_URL}/invocations"
 
 # Categories list
 CATEGORIES = [
-    "Fixed Acidity",
-    "Volatile Acidity",
-    "Citric Acid",
-    "Residual Sugar",
-    "Chlorides",
-    "Free Sulfur Dioxide",
-    "Total Sulfur Dioxide",
-    "Density",
-    "PH",
-    "Sulphates",
-    "Alcohol"
+    "fixed acidity",
+    "volatile acidity",
+    "citric acid",
+    "residual sugar",
+    "chlorides",
+    "free sulfur dioxide",
+    "total sulfur dioxide",
+    "density",
+    "pH",
+    "sulphates",
+    "alcohol"
 ]
 
 @app.route("/", methods=["GET", "POST"])
